@@ -57,3 +57,17 @@ code {
 .content .by {
   font-weight: bold;
 }
+
+#tweet-list {
+
+  margin-bottom: 10px;
+}
+
+.tweets {
+  list-style-type: none;
+
+}
+
+.form {
+  margin-bottom: 25px;
+}

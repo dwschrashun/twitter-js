@@ -1,13 +1,17 @@
 var express = require( 'express' );
 var app = express(); // creates an instance of an express application
 
+var morgan = require("morgan");
+
 var swig = require('swig');
 app.engine("html", swig.renderFile);
 app.set("view engine", "html");
 app.set("views", __dirname + '/views/');
 swig.setDefaults({cache:false});
 
-var routes = require('./routes/')
+var routes = require('./routes/');
+
+app.use(morgan("dev"));
 app.use('/', routes);
 
 var server = app.listen(3000);
