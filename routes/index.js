@@ -2,16 +2,14 @@ var express = require('express');
 var router = express.Router();
 // could use one line instead: var router = require('express').Router();
 var tweetBank = require('../tweetBank');
-var fs = require('fs')
+var fs = require('fs');
+var path = require('path');
 
 
 
 
-
-router.use('/public', function (req,res,next){
-	console.log(process.cwd() + "/public" + req.path);
-	res.sendFile(process.cwd() + "/public" + req.path);
-	next();
+router.use('/:param/:param2', function (req,res,next){
+	res.sendFile(path.join(__dirname, "../public/", req.params.param, "/", req.params.param2));
 })
 
 router.get('/', function (req, res) {
